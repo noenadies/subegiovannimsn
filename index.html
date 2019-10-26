@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Subir numeros campaña</title>
+		<style>
+			body { margin: 0; }
+		
+
+            #idbtsend{
+
+
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 100px;
+                height:100px;
+                border-radius: 50%;
+                background-color: rgb(46, 122, 194);
+            }
+
+            #idtodo{
+                position: absolute;
+                top:5%;
+                left: 0%;
+                width: 100%;
+                height: 90%;
+                display: flex;
+                background-color: rgb(90, 81, 81);
+                display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-items: center;
+	align-content: stretch;
+            }
+        </style>
+        
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/5.8.3/firebase.js"></script>
+<script>
+  // Your web app's Firebase configuration
+
+</script>
+	</head>
+	<body>
+<div id="idtodo">
+    <p id="idp">Buenos dias</p>
+numero:<input onchange="functioncamvia();"id="idnum"  type="number">
+
+
+
+<button id="idbtsend"  class="cles" type="button" value="Say hello" onClick="showAndroidToast2();">Subir numero</button>
+
+</div>
+        
+   
+                <script src="jquery-3.4.1.min.js"></script>
+
+                <script type="text/javascript">
+
+                var  vnumercel="3229375628";
+                var vmensje="giovanni este gfunciona";
+                var  cantidadmensaje=0;
+
+
+                function functioncamvia(){
+
+document.getElementById("idp").innerHTML="cambia";
+}
+
+
+
+
+
+/*
+                var firebaseConfig = {
+    apiKey: "AIzaSyBCt5zHMpW-dmRNUBAUJAmk10MwZtBUgoM",
+    authDomain: "giovannimensajes.firebaseapp.com",
+    databaseURL: "https://giovannimensajes.firebaseio.com",
+    projectId: "giovannimensajes",
+    storageBucket: "giovannimensajes.appspot.com",
+    messagingSenderId: "349767130638",
+    appId: "1:349767130638:web:7b11090858de1a9d27e65f",
+    measurementId: "G-TF45QPB31Z"
+  };*/
+  // Initialize Firebase
+
+
+
+  var config = {
+    apiKey: "AIzaSyBCt5zHMpW-dmRNUBAUJAmk10MwZtBUgoM",
+    authDomain: "giovannimensajes.firebaseapp.com",
+    databaseURL:"https://giovannimensajes.firebaseio.com",
+    projectId: "giovannimensajes",
+    storageBucket: "giovannimensajes.appspot.com",
+    messagingSenderId: "349767130638",
+  };
+  firebase.initializeApp(config);
+
+  
+
+
+  firebase.database().ref().child('nodonumeros').once('value').then(function(snapshot) {
+  var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+console.log(snapshot.val());
+});
+var subeobjnumero="1234567889";
+
+
+
+
+
+
+                    function showAndroidToast2(toast) {
+ 
+
+cantidadmensaje=cantidadmensaje+1;
+document.getElementById("idp").innerHTML="Buenos Días ";
+
+
+
+
+
+
+                   if(isNaN($("#idnum").val())) {  
+        alert("El teléfono solo debe contener números");  
+        return false;  
+    }  
+
+    if($("#idnum").val().length < 10) { 
+        document.getElementById("idp").innerHTML="faltan "+String(-$("#idnum").val().length+10)+ " números y no se  subio  . Ej. 3001234567";
+        alert("faltan "+String(-$("#idnum").val().length+10)+ " números y no se  subio  . Ej. 3001234567");  
+        return false;  
+    } 
+    if($("#idnum").val().length > 10) {  
+
+        document.getElementById("idp").innerHTML="sobran "+String($("#idnum").val().length-10)+ " números y no se  subio  . Ej. 3001234567";
+        alert("sobran "+String($("#idnum").val().length-10)+ " números y no se  subio  . Ej. 3001234567");  
+        return false;  
+    } 
+
+    if($("#idnum").val().length == 10) {  
+       // alert("Sobra un numero  y no se  subio  . Ej. 3001234567");  
+        document.getElementById("idp").innerHTML="Subio el numero "+$("#idnum").val();
+        subeobjnumero=document.getElementById("idnum").value;
+firebase.database().ref().child('nodonumeros').push(subeobjnumero);
+        return false;  
+    } 
+
+
+                    }
+var boolsiesnumero=false;
+                    function validarSiNumero(numero){
+                        alert("El valor " + " no es un número");
+/*
+    if (!/^([0-9])*$/.test(numero)){
+        boolsiesnumero=false;
+        alert("El valor " + numero + " no es un número");
+
+        document.getElementById("idp").innerHTML="no es un numero de celular "+numero;
+  
+     
+  }
+
+  else{
+        boolsiesnumero=true;
+    }*/
+}
+
+
+
+
+                </script>
+	</body>
+</html>
